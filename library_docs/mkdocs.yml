@@ -1,0 +1,61 @@
+site_name: Library API
+nav:
+  - Home: index.md
+  - Models:
+      - Book: models/book.md
+      - Reader: models/reader.md
+      - ReaderBook: models/reader_book.md
+      - Hall: models/hall.md
+      - BookInHall: models/book_in_hall.md
+
+  - API:
+      - Books endpoints:
+          - Create a book: api/books/create_book.md
+          - View book info: api/books/view_book_info.md
+          - Edit a book: api/books/edit_book.md
+          - List all books: api/books/list_books.md
+      - Readers endpoints:
+          - Create a reader: api/readers/create_reader.md
+          - View reader info: api/readers/view_reader_info.md
+          - Edit a reader: api/readers/edit_reader.md
+          - List all readers: api/readers/list_readers.md
+      - ReaderBook endpoints:
+          - Create a ReaderBook instance: api/reader_books/take_out.md
+          - View ReaderBook instance info: api/reader_books/view_reader_book_info.md
+          - Edit a ReaderBook instance: api/reader_books/return.md
+          - List all ReaderBook instances: api/reader_books/list_reader_books.md
+      - Authorization: api/authorization.md
+
+  - User Interface:
+      - Home page: user_interface/home/home.md
+      - Reader Profile:
+          - Sign up: user_interface/reader/sign_up.md
+          - Sign in: user_interface/reader/sign_in.md
+          - View profile: user_interface/reader/profile.md
+          - Edit profile: user_interface/reader/profile_edit.md
+      - Book Catalogue:
+          - Book catalogue: user_interface/books/catalogue.md
+          - Specific book info: user_interface/books/book_info.md
+          - Take out a book: user_interface/books/take_out.md
+          - Return a book to the library: user_interface/books/return.md
+
+  - Labs (spring 2022):
+      - 1. Docker:
+          - 1.1. Docker + Docker compose: labs/docker/docker.md
+          - 1.2. Миграции внутри контейнера: labs/docker/migrations.md
+          - 1.3. Postgres DB: labs/docker/postgres_db.md
+      - 2. Возможности DRF:
+          - 2.1. Фильтры:
+            - 2.1.1. Ручные фильтры: labs/drf_features/manual_filters.md
+            - 2.1.2. Автоматические фильтры: labs/drf_features/automated_filters.md
+          - 2.2. Пагинация: labs/drf_features/pagination.md
+          - 2.3. Загрузка и валидация файлов: labs/drf_features/files.md
+          - 2.4. Сигналы: labs/drf_features/signals.md
+      - 3. Тестирование в DRF:
+          - 3.1. Тестирование моделей: labs/tests/model_tests.md
+          - 3.2. Тестирование GET-запросов: labs/tests/get_tests.md
+          - 3.3. Тестирование POST-запросов: labs/tests/post_tests.md
+          - 3.4. Тестирование PUT-запросов: labs/tests/put_tests.md
+
+theme:
+  name: material
