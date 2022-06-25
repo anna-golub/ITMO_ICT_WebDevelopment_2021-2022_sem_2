@@ -56,6 +56,7 @@ nav:
                                 - Retrieve: api/readers/view_reader_info.md
                                 - Edit: api/readers/edit_reader.md
                                 - List: api/readers/list_readers.md
+                                - Авторизация: api/readers/authorization.md
                           - Hall: api/halls.md
                           - ReaderBook:
                                       - Create: api/reader_books/take_out.md
@@ -63,7 +64,6 @@ nav:
                                       - Edit: api/reader_books/return.md
                                       - List: api/reader_books/list_reader_books.md
                           - BookInHall: api/book_in_halls.md
-                          - Авторизация: api/authorization.md
 
               - ЛР4. Основные интерфейсы Vue.js:
                     - Домашняя страница: user_interface/home/home.md

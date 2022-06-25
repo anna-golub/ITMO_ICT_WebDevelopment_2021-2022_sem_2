@@ -11,7 +11,7 @@
 * readers (FK) - кто сейчас читает эту книгу
 
 ## Reader
-Читатель (наследуется от Django AbstractUser): 
+Читатель (наследуется от `Django` `AbstractUser`): 
 
 * username - логин
 * password - пароль

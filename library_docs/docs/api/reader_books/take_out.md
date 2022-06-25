@@ -14,7 +14,7 @@
 
 **Code** : `201 Created`
 
-**Content** : `{[]}`
+**Content** : 
 
 ```json
 {
