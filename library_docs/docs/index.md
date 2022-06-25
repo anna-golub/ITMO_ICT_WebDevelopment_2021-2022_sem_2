@@ -1,21 +1,38 @@
-## Overview
-The **library** api presents information on the contents of the **library** database. 
-It includes information on **books**, **readers** who attend the library and the library **halls**. The api allows to request more and less specific information from the corresponding tables. 
-The api also provides tools for registering readers as users, allows to edit their profiles and do authorization by token.  
+<p style="text-align: center;">
+МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ <br>
+САНКТ-ПЕТЕРБУРГСКИЙ НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ
+УНИВЕРСИТЕТ ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ, МЕХАНИКИ И
+ОПТИКИ <br>
+ФАКУЛЬТЕТ ИНФОКОММУНИКАЦИОННЫХ ТЕХНОЛОГИЙ
+</p>
 
+<br>
 
-## Quick Start
-To start using the library api, follow these steps.
+<p style="text-align: center;">
+ОТЧЕТ <br>
+о курсовой работе <br> 
+на тему <br>
+<b>«Разработка веб-сервиса»</b> <br>
+по дисциплине <br>
+<b>«Средства веб-программирования»</b>
+</p>
 
-1. Install Django and Django Rest Framework:  
-`pip install django`  
-`pip install djangorestframework`
+<br>
 
-2. Clone the repository to your local computer. 
-In order to do that, press the button `Git clone` in the upper left corner and run the command in your local cmd.
+<p style="text-align: right;">
+Выполнила <br>
+Голуб А.Л. <br>
+группа К33421
+</p>
 
-3. Go to the `library_app` folder and run the command  
-`python manage.py runserver`
+<p style="text-align: right;">
+Проверил <br>
+Говоров А. И.
+</p>
 
-4. Go to `localhost:8000/library/` and start using the api. 
-For the list of available endpoints, consult the library docs.
+<br>
+
+<p style="text-align: center;">
+Санкт-Петербург <br>
+2022
+</p>
