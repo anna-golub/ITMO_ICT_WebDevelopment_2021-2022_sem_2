@@ -1,4 +1,4 @@
-# List all readers
+# Список читателей
 
 **URL** : `/readers/`
 

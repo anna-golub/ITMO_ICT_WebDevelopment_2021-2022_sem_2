@@ -39,7 +39,8 @@ def validate_file_size(file_upload):
     # limit = 2 * 1024  # 2 KB
 
     if file_upload.size > limit:
-        raise ValidationError('The file is too large. File size limit is %d.' % limit)
+        raise ValidationError('The file is too large. '
+                              'File size limit is %d.' % limit)
 ```
 
 Валидация типа файла
@@ -53,7 +54,8 @@ def validate_file_type(file_upload):
 
     content_type = magic.from_buffer(file_upload.read(), mime=True)
     if content_type not in possible_extensions:
-        raise ValidationError('Files of type %s are not supported.' % content_type)
+        raise ValidationError('Files of type %s are not supported.' 
+                              % content_type)
 ```
 
 ## Загрузка одного файла

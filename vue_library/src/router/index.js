@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Home from '@/views/Home'
-import BookList from '@/views/books/BookList'
+// import BookList from '@/views/books/BookList'
 import Book from '@/views/books/Book'
 import BookTakeOut from '@/views/books/BookTakeOut'
 import BookReturn from '@/views/books/BookReturn'
@@ -11,6 +11,7 @@ import SignIn from '@/views/reader/SignIn'
 import ReaderProfile from '@/views/reader/ReaderProfile'
 import ReaderProfileEdit from '@/views/reader/ReaderProfileEdit'
 import BookFilter from '@/views/books/BookFilter'
+import HallList from '@/views/books/HallList'
 
 Vue.use(Router)
 
@@ -25,7 +26,7 @@ export default new Router({
     {
       path: '/library/books',
       name: 'catalogue',
-      component: BookList
+      component: BookFilter
     },
     {
       path: '/library/books/:id',
@@ -63,9 +64,9 @@ export default new Router({
       component: BookReturn
     },
     {
-      path: '/library/search/',
-      name: 'book_filter',
-      component: BookFilter
+      path: '/library/halls/',
+      name: 'halls',
+      component: HallList
     }
   ]
 })

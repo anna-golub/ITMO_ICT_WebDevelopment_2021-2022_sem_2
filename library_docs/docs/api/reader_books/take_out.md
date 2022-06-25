@@ -1,4 +1,4 @@
-# Create a new ReaderBook instance
+# Создать ReaderBook
 
 **URL** : `/take_out/`
 

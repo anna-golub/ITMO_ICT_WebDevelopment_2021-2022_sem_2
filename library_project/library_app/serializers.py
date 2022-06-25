@@ -18,9 +18,13 @@ class HallSerializer(serializers.ModelSerializer):
 class ReaderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reader
-        fields = "__all__"
+        fields = ['email', 'username', 'password',
+                  'card_number', 'first_name', 'last_name',
+                  'passport', 'date_of_birth', 'address', 'phone',
+                  'education', 'degree', 'reader_hall']
 
     def create(self, validated_data):
+        print('validated_data =', validated_data)
         user = Reader(
             email=validated_data['email'],
             username=validated_data['username']
@@ -49,10 +53,10 @@ class ReaderRetrieveSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class ReportSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Report
-        fields = "__all__"
+# class ReportSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Report
+#         fields = "__all__"
 
 
 class ReaderBookCreateSerializer(serializers.ModelSerializer):
@@ -63,7 +67,7 @@ class ReaderBookCreateSerializer(serializers.ModelSerializer):
 
 class ReaderBookSerializer(serializers.ModelSerializer):
     book = BookSerializer()
-    reader = ReaderSerializer()
+    reader = ReaderRetrieveSerializer()
 
     class Meta:
         model = ReaderBook
@@ -82,3 +86,17 @@ class BookCoverSerializer(serializers.ModelSerializer):
     class Meta:
         model = BookCover
         fields = ['book', 'file']
+
+
+# class ReviewSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Review
+#         fields = "__all__"
+
+
+class BookInHallSerializer(serializers.ModelSerializer):
+    book = BookSerializer()
+
+    class Meta:
+        model = BookInHall
+        fields = "__all__"

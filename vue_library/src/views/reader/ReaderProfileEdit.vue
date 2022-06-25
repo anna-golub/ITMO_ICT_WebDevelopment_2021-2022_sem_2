@@ -1,71 +1,133 @@
 <template>
-  <div class="edit">
-    <h2>Редактирование профиля</h2>
-    <v-form
-      @submit.prevent="saveChanges"
-      ref="editForm"
-      class="my-2">
-      <v-row>
-        <v-col cols="5" class="mx-auto">
+  <div>
 
-<!--          <v-text-field-->
-<!--            label="Пароль"-->
-<!--            v-model="editForm.password"-->
-<!--            type="password"/>-->
+    <v-navigation-drawer
+      app
+      permanent>
+      <v-list
+        dense
+        nav
+      >
+        <v-list-item
+          link
+        >
+          <v-list-item-icon>
+            <v-icon @click="goHome">mdi-view-dashboard</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title @click="goHome">Домашняя страница</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
 
-          <v-text-field
-            label="Имя"
-            v-model="editForm.first_name"
-            name="first_name"/>
+        <v-list-item
+          link
+        >
+          <v-list-item-icon>
+            <v-icon @click="goCatalogue">mdi-book-search-outline</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title @click="goCatalogue">Каталог</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
 
-          <v-text-field
-            label="Фамилия"
-            v-model="editForm.last_name"
-            name="last_name"/>
+        <v-list-item
+          link
+        >
+          <v-list-item-icon>
+            <v-icon @click="goHalls">mdi-bookshelf</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title @click="goHalls">Залы</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
 
-          <v-text-field
-            label="Номер билета"
-            v-model="editForm.card_number"
-            name="card_number"
-            type="number"/>
+        <v-list-item
+          link
+        >
+          <v-list-item-icon>
+            <v-icon v-if="authorized" @click="goProfile">mdi-account</v-icon>
+            <v-icon v-else @click="goSignIn">mdi-login</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title v-if="authorized" @click="goProfile">Личный кабинет</v-list-item-title>
+            <v-list-item-title v-else @click="goSignIn">Войти</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
 
-          <v-text-field
-            label="Дата рождения"
-            v-model="editForm.date_of_birth"
-            name="date_of_birth"
-            type="date"/>
+      </v-list>
+    </v-navigation-drawer>
 
-          <v-select
-            v-model="editForm.education"
-            :items="educationOptions"
-            label="Образование"
-          ></v-select>
+    <div class="edit">
+      <h2>Редактирование профиля</h2>
+      <v-form
+        @submit.prevent="saveChanges"
+        ref="editForm"
+        class="my-2">
+        <v-row>
+          <v-col cols="5" class="mx-auto">
 
-          <v-checkbox
-            v-model="editForm.degree"
-            :label="'Учёная степень'"
-          ></v-checkbox>
+            <!--          <v-text-field-->
+            <!--            label="Пароль"-->
+            <!--            v-model="editForm.password"-->
+            <!--            type="password"/>-->
 
-          <v-text-field
-            label="Паспортные данные"
-            v-model="editForm.passport"
-            name="passport"/>
+            <v-text-field
+              label="Имя"
+              v-model="editForm.first_name"
+              name="first_name"/>
 
-          <v-text-field
-            label="Адрес"
-            v-model="editForm.address"
-            name="address"/>
+            <v-text-field
+              label="Фамилия"
+              v-model="editForm.last_name"
+              name="last_name"/>
 
-          <v-text-field
-            label="Телефон"
-            v-model="editForm.phone"
-            name="phone"/>
+            <v-text-field
+              label="Номер билета"
+              v-model="editForm.card_number"
+              name="card_number"
+              type="number"/>
 
-          <v-btn type="submit" color="primary" dark>Сохранить</v-btn>
-        </v-col>
-      </v-row>
-    </v-form>
-    <p class="mt-15"><router-link to="/library/profile">Назад</router-link></p>
+            <v-text-field
+              label="Дата рождения"
+              v-model="editForm.date_of_birth"
+              name="date_of_birth"
+              type="date"/>
+
+            <v-select
+              v-model="editForm.education"
+              :items="educationOptions"
+              label="Образование"
+            ></v-select>
+
+            <v-checkbox
+              v-model="editForm.degree"
+              :label="'Учёная степень'"
+            ></v-checkbox>
+
+            <v-text-field
+              label="Паспортные данные"
+              v-model="editForm.passport"
+              name="passport"/>
+
+            <v-text-field
+              label="Адрес"
+              v-model="editForm.address"
+              name="address"/>
+
+            <v-text-field
+              label="Телефон"
+              v-model="editForm.phone"
+              name="phone"/>
+
+            <v-btn type="submit" color="primary" dark>Сохранить</v-btn>
+          </v-col>
+        </v-row>
+      </v-form>
+      <p class="mt-15">
+        <router-link to="/library/profile">Назад</router-link>
+      </p>
+    </div>
+
   </div>
 </template>
 
@@ -88,11 +150,15 @@ export default {
       phone: ''
     },
     educationOptions: ['Среднее общее', 'Среднее специальное',
-      'Высшее', 'Неоконченное высшее', 'Неоконченное среднее']
+      'Высшее', 'Неоконченное высшее', 'Неоконченное среднее'],
+    authorized: false
   }),
 
   created () {
     this.loadReaderData()
+    if (localStorage.getItem('auth_token')) {
+      this.authorized = true
+    }
   },
 
   methods: {
@@ -163,6 +229,26 @@ export default {
           console.error(e.message)
         }
       }
+    },
+
+    goHome () {
+      this.$router.push({ name: 'home' })
+    },
+
+    goCatalogue () {
+      this.$router.push({ name: 'catalogue' })
+    },
+
+    goHalls () {
+      this.$router.push({ name: 'halls' })
+    },
+
+    goProfile () {
+      this.$router.push({ name: 'reader_profile' })
+    },
+
+    goSignIn () {
+      this.$router.push({ name: 'signin' })
     }
   }
 }

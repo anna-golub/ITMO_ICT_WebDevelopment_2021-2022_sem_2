@@ -9,10 +9,20 @@ class Book(models.Model):
     authors = models.CharField(max_length=1000, verbose_name='Автор(ы)')
     publisher = models.CharField(max_length=500, verbose_name='Издательство')
     publication_year = models.IntegerField(verbose_name='Год издания')
-    genre = models.CharField(max_length=300, verbose_name='Жанр')
     book_cypher = models.CharField(max_length=50, verbose_name='Шифр')
     book_hall = models.ManyToManyField('Hall', through='BookInHall', verbose_name='Зал')
     book_reader = models.ManyToManyField('Reader', through='ReaderBook', verbose_name='Читатель')
+
+    genre_options = (
+        ('Роман', 'Роман'),
+        ('Повесть', 'Повесть'),
+        ('Рассказ', 'Рассказ'),
+        ('Поэма', 'Поэма'),
+        ('Сказка', 'Сказка'),
+    )
+    genre = models.CharField(max_length=300, choices=genre_options, default='-',
+                             verbose_name='Жанр', blank=True, null=True)
+    # book_review = models.ManyToManyField('Reader', through='Review', verbose_name='Отзывы')
 
     def __str__(self):
         return self.title
@@ -38,7 +48,7 @@ class BookInHall(models.Model):
 
 class Reader(AbstractUser):
     username = models.CharField(max_length=30, unique=True)
-    password = models.CharField(max_length=30)
+    password = models.CharField(max_length=300)
 
     REQUIRED_FIELDS = ['card_number', 'first_name', 'last_name',
                        'passport', 'date_of_birth', 'address', 'phone',
@@ -89,16 +99,10 @@ class ReaderBook(models.Model):
 #     hall = models.ForeignKey('Hall', on_delete=models.CASCADE, verbose_name='Зал')
 
 
-class Report(models.Model):
-    # books_by_hall = models.ManyToManyField('Book', through='BookInHall',
-    #                                        verbose_name='Число книг в зале', blank=True, null=True)
-    # readers_by_hall = models.ManyToManyField('Reader', through='ReaderHall',
-    #                                        verbose_name='Число книг в зале', blank=True, null=True)
-    books_by_hall = models.IntegerField(verbose_name="Число книг в зале", blank=True, null=True)
-    # readers_by_hall = models.IntegerField(verbose_name="Число читателей в зале")
-    # readers_total = models.IntegerField()
-    # books_new = models.IntegerField()
-    # readers_new = models.IntegerField()
+# class Review(models.Model):
+#     review_book = models.ForeignKey('Book', on_delete=models.CASCADE, verbose_name='Книга')
+#     reader = models.ForeignKey('Reader', on_delete=models.CASCADE, verbose_name='Читатель')
+#     text = models.CharField(max_length=1000, verbose_name='Текст отзыва', blank=True, null=True)
 
 
 def get_upload_path(instance, filename):

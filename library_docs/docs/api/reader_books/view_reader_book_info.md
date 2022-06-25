@@ -1,4 +1,4 @@
-# View a ReaderBook instance info
+# Информация об экземпляре ReaderBook
 
 **URL** : `/reader_books/<int:pk>/`
 

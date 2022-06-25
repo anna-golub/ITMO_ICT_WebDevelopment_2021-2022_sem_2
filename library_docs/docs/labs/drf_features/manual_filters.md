@@ -3,7 +3,8 @@
 ## Фильтрация по одному параметру
 Фильтрация списка книг по жанру.
 
-```angular2html
+`views.py`
+```
 class BookFilterView(ListAPIView):
     serializer_class = BookSerializer
 
@@ -43,7 +44,8 @@ class BookFilterView(ListAPIView):
 ## Фильтрация по двум параметрам
 Фильтрация списка книг по жанру и автору.
 
-```angular2html
+`views.py`
+```
 class BookFilterView(ListAPIView):
     serializer_class = BookSerializer
 
@@ -85,7 +87,8 @@ class BookFilterView(ListAPIView):
 ## Фильтрация по двум параметрам и авторизованности пользователя
 Фильтрация списка читателей по наличию высшего образования и ученой степени, если пользователь авторизован.
 
-```angular2html
+`views.py`
+```
 class ReaderFilterView(ListAPIView):
     serializer_class = ReaderSerializer
 
@@ -104,7 +107,7 @@ class ReaderFilterView(ListAPIView):
 
 **URL** : `http://localhost:8000/library/readers/filter/?education=Высшее&degree=True`
 
-**Content** : (for an authenticated user)
+**Content** : (для авторизованного пользователя)
 ```json
 [
     {

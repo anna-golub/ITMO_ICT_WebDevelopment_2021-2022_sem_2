@@ -1,4 +1,4 @@
-# View book info
+# Информация о книге
 
 **URL** : `books/<int:pk>/`
 

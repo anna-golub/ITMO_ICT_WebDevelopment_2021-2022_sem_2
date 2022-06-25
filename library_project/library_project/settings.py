@@ -95,7 +95,7 @@ DATABASES = {
     #     'NAME': 'library_db',
     #     'USER': 'postgres',
     #     'PASSWORD': 'pogavi44',
-    #     'HOST': 'db',
+    #     'HOST': 'db',  # migrations -> localhost
     #     'PORT': '5432',
     # }
     'default': {

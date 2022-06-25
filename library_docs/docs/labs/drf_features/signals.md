@@ -8,7 +8,8 @@
 @receiver(pre_save, sender=Book)
 def on_create_book(sender, instance, **kwargs):
     if instance.id is None:
-        print('A new Book instance created: %s, %s' % (instance.title, instance.authors))
+        print('A new Book instance created: %s, %s\n' %
+              (instance.title, instance.authors))
 ```
 
 `apps.py`

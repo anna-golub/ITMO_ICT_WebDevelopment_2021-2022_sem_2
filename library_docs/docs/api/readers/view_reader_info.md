@@ -1,4 +1,4 @@
-# View reader info
+# Информация о читателе
 
 **URL** : `readers/<int:pk>/`
 

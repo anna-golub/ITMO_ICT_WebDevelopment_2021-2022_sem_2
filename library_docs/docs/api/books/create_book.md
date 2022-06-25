@@ -1,4 +1,4 @@
-# Create a new book
+# Создать книгу
 
 **URL** : `books/create/`
 

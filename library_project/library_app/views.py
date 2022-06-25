@@ -2,17 +2,18 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 
-from .pagination import CustomPagination
+from .pagination import *
 from .serializers import *
 from rest_framework.generics import *
 from .filters import *
-from rest_framework.filters import SearchFilter
+from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
 
 class BookListAPIView(ListAPIView):
     serializer_class = BookSerializer
     queryset = Book.objects.all()
+    pagination_class = BooksPagination
 
 
 class BookFilterView(ListAPIView):
@@ -21,7 +22,6 @@ class BookFilterView(ListAPIView):
     def get_queryset(self):
         queryset = Book.objects.all()
         genre = self.request.query_params.get('genre')
-        print(genre)
         author = self.request.query_params.get('author')
 
         if genre is not None:
@@ -34,8 +34,20 @@ class BookFilterView(ListAPIView):
 class BookSearchView(ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    filter_backends = (DjangoFilterBackend, SearchFilter)
+    pagination_class = BooksPagination
+    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
     search_fields = ['title', 'authors']
+    ordering_fields = ['title', 'authors', 'publication_year']
+
+
+class BookMainFilterView(ListAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+    pagination_class = BooksPagination
+    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
+    search_fields = ['title', 'authors']
+    ordering_fields = ['title', 'authors', 'publication_year']
+    filterset_class = BookMainFilter
 
 
 class BookCreateAPIView(CreateAPIView):
@@ -56,7 +68,7 @@ class BookRetrieveAPIView(RetrieveAPIView):
 class ReaderListAPIView(ListAPIView):
     serializer_class = ReaderSerializer
     queryset = Reader.objects.all()
-    pagination_class = CustomPagination
+    pagination_class = ReadersPagination
 
 
 class ReaderCreateAPIView(CreateAPIView):
@@ -170,3 +182,25 @@ class BookCoverMultipleView(CreateAPIView):
             file_instance.save()
 
         return Response(request.data, status=status.HTTP_201_CREATED)
+
+
+# class ReviewCreateView(CreateAPIView):
+#     queryset = Review.objects.all()
+#     serializer_class = ReviewSerializer
+#
+#
+# class ReviewListView(ListAPIView):
+#     queryset = Review.objects.all()
+#     serializer_class = ReviewSerializer
+
+
+class HallListAPIView(ListAPIView):
+    queryset = Hall.objects.all()
+    serializer_class = HallSerializer
+    pagination_class = None
+
+
+class BookInHallListAPIView(ListAPIView):
+    queryset = BookInHall.objects.all()
+    serializer_class = BookInHallSerializer
+    pagination_class = None

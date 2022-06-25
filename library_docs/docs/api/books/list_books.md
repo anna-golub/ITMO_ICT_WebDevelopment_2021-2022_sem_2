@@ -1,4 +1,4 @@
-# List all books
+# Список книг
 
 **URL** : `/books/`
 

@@ -1,4 +1,4 @@
-# Edit a reader info or delete a reader
+# Редактировать и удалить читателя
 
 **URL** : `readers/edit/<int:pk>/`
 

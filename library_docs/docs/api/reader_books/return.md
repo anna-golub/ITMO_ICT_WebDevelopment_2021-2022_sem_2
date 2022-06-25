@@ -1,4 +1,4 @@
-# Edit or delete a ReaderBook instance
+# Редактировать или удалить ReaderBook
 
 **URL** : `/return/<int:pk>/`
 

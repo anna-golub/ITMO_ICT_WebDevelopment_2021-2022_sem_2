@@ -1,4 +1,4 @@
-# Edit a book info or delete a book
+# Редактировать или удалить книгу
 
 **URL** : `books/edit/<int:pk>/`
 
@@ -31,10 +31,3 @@
     "book_reader": []
 }
 ```
-
-
-## Readers
-* `readers/` - list all readers
-* `readers/create/` - create a new reader
-* `readers/<int:pk>/` - view reader info
-* `readers/edit/<int:pk>/` - update reader info or delete a reader

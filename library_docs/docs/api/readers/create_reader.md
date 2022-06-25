@@ -1,4 +1,4 @@
-# Create a new reader
+# Создать читателя
 
 **URL** : `readers/create/`
 

@@ -13,6 +13,7 @@ urlpatterns = [
 
     # search books by title and author
     path('books/filter/search/', BookSearchView.as_view(), name='books_search'),
+    path('books/filter/main/', BookMainFilterView.as_view()),  # main book filter
 
     # update / delete book by id
     path('books/edit/<int:pk>/', BookRetrieveUpdateDestroyAPIView.as_view(), name='books_edit'),
@@ -47,4 +48,12 @@ urlpatterns = [
     # book cover upload
     path('book_cover_upload/', BookCoverCreateView.as_view()),
     path('book_cover_multiple/', BookCoverMultipleView.as_view()),
+
+    # review
+    # path('reviews/', ReviewListView.as_view()),
+    # path('reviews/create/', ReviewCreateView.as_view()),
+
+    # halls
+    path('halls/', HallListAPIView.as_view()),
+    path('book_in_halls/', BookInHallListAPIView.as_view()),
 ]

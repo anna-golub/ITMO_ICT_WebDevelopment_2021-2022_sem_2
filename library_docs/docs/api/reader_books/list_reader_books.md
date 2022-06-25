@@ -1,4 +1,4 @@
-# List all ReaderBook instances
+# Список экземпляров ReaderBook
 
 **URL** : `/reader_books/`
 
