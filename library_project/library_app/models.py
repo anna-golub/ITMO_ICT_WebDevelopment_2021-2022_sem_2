@@ -22,7 +22,6 @@ class Book(models.Model):
     )
     genre = models.CharField(max_length=300, choices=genre_options, default='-',
                              verbose_name='Жанр', blank=True, null=True)
-    # book_review = models.ManyToManyField('Reader', through='Review', verbose_name='Отзывы')
 
     def __str__(self):
         return self.title

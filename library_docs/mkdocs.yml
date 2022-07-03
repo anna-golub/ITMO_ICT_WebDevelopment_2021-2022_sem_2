@@ -39,10 +39,10 @@ nav:
 #          - Take out a book: user_interface/books/take_out.md
 #          - Return a book to the library: user_interface/books/return.md
 
-  - Отчет:
       - Титульный лист: labs/title.md
       - Введение: labs/introduction.md
-      - 5 семестр:
+      - Цель и задачи: labs/goals.md
+      - Раздел 1 (5 семестр):
               - ЛР3. Модели и основные эндпойнты Django Rest Framework:
                     - Модели: labs/models.md
                     - Эндпойнты:
@@ -78,7 +78,7 @@ nav:
                         - Взять книгу: user_interface/books/take_out.md
                         - Вернуть книгу: user_interface/books/return.md
 
-      - 6 семестр:
+      - Раздел 2 (6 семестр):
           - ЛР1. Docker. Контейнеризация и оркестрация:
               - 1.1. Docker + Docker compose: labs/docker/docker.md
               - 1.2. Миграции внутри контейнера: labs/docker/migrations.md

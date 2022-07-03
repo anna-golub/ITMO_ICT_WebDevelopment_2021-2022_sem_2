@@ -108,7 +108,7 @@ export default {
       halls: {},
       book_in_halls: {},
       allLoaded: false,
-      authorized: true
+      authorized: false
     }
   },
 
